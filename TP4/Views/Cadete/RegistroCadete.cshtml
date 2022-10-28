@@ -1,0 +1,23 @@
+@model Cadete
+
+<body>
+    <header>
+        <main>
+            <h1>Alta Cadete</h1>
+            <form asp-controller="Cadete" asp-action="AltaCadete" method="post" >
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Escriba el nombre del cadete">
+
+                <label for="direccion">Direccion:</label>
+                <input type="text" id="direccion" name="direccion" placeholder="Escriba la direccion del cadete">
+
+                <label for="telefono">Telefono:</label>
+                <input type="tel" id="telefono" name="telefono">
+
+                <input type="submit" value="Cargar">
+                <input type="reset" value="Borrar">
+            </form>
+
+        </main>
+    </header>
+</body>
