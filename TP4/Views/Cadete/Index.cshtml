@@ -1,5 +1,9 @@
 @model List<Cadete>
 
+<h2>Lista de Cadetes</h2>
+
+<a class="btn btn-primary btn-sm" href='/Cadete/RegistroCadete'>Crear nuevo Cadete</a>
+
 <table>
     <thead>
         <tr>
@@ -17,6 +21,10 @@
                 <td>@cadete.nombre</td>
                 <td>@cadete.direccion</td>
                 <td>@cadete.telefono</td>
+                <td>
+                <a class="btn btn-primary btn-sm" href="/Cadete/RegistroCadete?id=@cadete.ID">Editar</a>
+                <a class="btn btn-danger btn-sm" href="/Cadete/BajaCadete?id=@cadete.ID">Eliminar</a>
+                </td>
             </tr>
         }
     </tbody>

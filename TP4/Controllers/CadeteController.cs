@@ -12,19 +12,19 @@ namespace TP4.Controllers
     {
         private readonly ILogger<CadeteController> _logger;
 
-        private readonly List<Cadete> cadetes = new();
+        private static readonly List<Cadete> cadetes = new();
 
-        private static int cantCadetes = 1;
+        private static int idCadetes = 0;
 
         public CadeteController(ILogger<CadeteController> logger)
         {
             _logger = logger;
         }
 
-        /*public IActionResult Index()
+        public IActionResult Index()
         {
-            return View();
-        }*/
+            return View(cadetes);
+        }
 
         [HttpGet]
         public IActionResult RegistroCadete()
@@ -32,27 +32,20 @@ namespace TP4.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult AltaCadete(string nombre, string direccion, string telefono)
-        {   
-            Cadete cadete= new Cadete(cantCadetes,nombre,direccion,telefono);
+        public void RegistroCadeteExito(Cadete cadete)
+        {
+            cadete.ID = ++idCadetes;
             cadetes.Add(cadete);
-            cantCadetes++;
-            return View("ListaCadete", cadetes);
+            Response.Redirect("/Cadete");
         }
 
-        [HttpPost]
-        public IActionResult BajaCadete(Cadete cadete)
+        [HttpGet]
+        public void BajaCadete(Cadete cadete)
         {   
-            cadetes.Remove(cadete);
-            return View(cadete);
+            cadetes.RemoveAll(x => x.ID == idCadetes);
+            Response.Redirect("/Cadete");
         }
 
-        [HttpPost]
-        public IActionResult ListaCadete(List<Cadete> cadetes)
-        {   
-            return View(cadetes);
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -2,7 +2,9 @@ public class Cadete : Persona{
 
     private int PagoPedidos=300;
 
-    public Cadete(int ID, string nombre, string direccion, string telefono) : base(ID,nombre,direccion,telefono){
+     public Cadete() : base(){
+    }
+    public Cadete(string nombre, string direccion, string telefono) : base(nombre,direccion,telefono){
     }
     
     /*

@@ -4,13 +4,14 @@ public class Persona{
     public string direccion { get; set; }
     public string telefono { get; set; }
 
-    public Persona(int ID, string nombre, string direccion, string telefono){
+    public Persona(){
 
-        this.ID = ID;
+    }
+    public Persona( string nombre, string direccion, string telefono)
+    {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
-
     }
 
 }
